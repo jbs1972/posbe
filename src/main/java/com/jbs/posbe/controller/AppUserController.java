@@ -62,7 +62,9 @@ public class AppUserController {
 	@Operation(
 			tags = "Users", summary = "List users", description = "Retrieve all users.")
 	@ApiResponses(value = { 
-			@ApiResponse(responseCode = "201", description = "User created successfully") })
+			@ApiResponse(responseCode = "200", description = "User created successfully"),
+			@ApiResponse(responseCode = "500", description = "Error retrieving users") 
+			})
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/page")
 	public ResponseEntity<ManagedApiResponse<Page<AppUserResponseDto>>> getAllUsers(
@@ -84,10 +86,10 @@ public class AppUserController {
 	
 	// ---------------------------------------------------------------------
 	@Operation(
-			tags = "Users", summary = "Get users by ID", description = "Fetch user by ID.")
+			tags = "Users", summary = "Get user by ID", description = "Fetch user by ID.")
 	@ApiResponses(value = { 
-			@ApiResponse(responseCode = "201", description = "User created successfully"),
-			@ApiResponse(responseCode = "404", description = "User not found") })
+			@ApiResponse(responseCode = "200", description = "User retrieved successfully"),
+			@ApiResponse(responseCode = "500", description = "Error retrieving users") })
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/{userId}")
 	public ResponseEntity<ManagedApiResponse<AppUserResponseDto>> getUserById(@PathVariable Long userId) {

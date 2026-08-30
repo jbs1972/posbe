@@ -10,13 +10,20 @@
       "name": "Add Company",
       "request": {
         "auth": {
-          "type": "noauth"
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
         },
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "// {\r\n//     \"cname\": \"Company 01\",\r\n//     \"cabbr\": \"C01\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 02\",\r\n//     \"cabbr\": \"C02\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 03\",\r\n//     \"cabbr\": \"C03\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 04\",\r\n//     \"cabbr\": \"C04\"\r\n// }\r\n{\r\n    \"cname\": \"Company 05\",\r\n    \"cabbr\": \"C05\"\r\n}",
+          "raw": "// {\r\n//     \"cname\": \"Company 01\",\r\n//     \"cabbr\": \"C01\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 02\",\r\n//     \"cabbr\": \"C02\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 03\",\r\n//     \"cabbr\": \"C03\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 04\",\r\n//     \"cabbr\": \"C04\"\r\n// }\r\n// {\r\n//     \"cname\": \"Company 05\",\r\n//     \"cabbr\": \"C05\"\r\n// }\r\n{\r\n    \"cname\": \"Company 06\",\r\n    \"cabbr\": \"C06\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -272,7 +279,14 @@
       "name": "Get Companies by pagination",
       "request": {
         "auth": {
-          "type": "noauth"
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
         },
         "method": "GET",
         "header": [],
@@ -388,12 +402,19 @@
       "name": "Get company by ID",
       "request": {
         "auth": {
-          "type": "noauth"
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
         },
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/api/companies/8",
+          "raw": "http://localhost:8080/api/companies/4",
           "protocol": "http",
           "host": [
             "localhost"
@@ -402,7 +423,7 @@
           "path": [
             "api",
             "companies",
-            "8"
+            "4"
           ]
         }
       },
@@ -626,13 +647,20 @@
       "name": "Update company by ID",
       "request": {
         "auth": {
-          "type": "noauth"
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
         },
         "method": "PATCH",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "// {\r\n//     \"active\": false\r\n// }\r\n{\r\n  \"cabbr\": \"THIS_IS_TOO_LONG\"\r\n}",
+          "raw": "// {\r\n//     \"active\": false\r\n// }\r\n{\r\n  \"cabbr\": \"LONG_CABBR\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -640,7 +668,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/companies/9",
+          "raw": "http://localhost:8080/api/companies/5",
           "protocol": "http",
           "host": [
             "localhost"
@@ -649,7 +677,7 @@
           "path": [
             "api",
             "companies",
-            "9"
+            "5"
           ]
         }
       },
@@ -5462,6 +5490,633 @@
           ],
           "cookie": [],
           "body": "{\n    \"status\": 200,\n    \"message\": \"Password updated successfully.\",\n    \"data\": null,\n    \"timestamp\": \"2026-08-02T21:41:46.2896786\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Add Customer",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "// {\r\n//     \"cname\": \"Ramesh Yadav\",\r\n//     \"cmobile\": \"8331275858\",\r\n//     \"active\": true\r\n// }\r\n// {\r\n//     \"cname\": \"Dinesh Tripathi\",\r\n//     \"cmobile\": \"9001274558\",\r\n//     \"active\": true\r\n// }\r\n{\r\n    \"cname\": \"Amar Singh\",\r\n    \"cmobile\": \"9456874558\",\r\n    \"active\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Add Customer - success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//     \"cname\": \"Ramesh Yadav\",\r\n//     \"cmobile\": \"8331275858\",\r\n//     \"active\": true\r\n// }\r\n// {\r\n//     \"cname\": \"Dinesh Tripathi\",\r\n//     \"cmobile\": \"9001274558\",\r\n//     \"active\": true\r\n// }\r\n{\r\n    \"cname\": \"Amar Singh\",\r\n    \"cmobile\": \"9456874558\",\r\n    \"active\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 23 Aug 2026 15:59:25 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 201,\n    \"message\": \"Customer created successfully\",\n    \"data\": {\n        \"customerId\": 4,\n        \"cname\": \"Amar Singh\",\n        \"cmobile\": \"9456874558\",\n        \"active\": true,\n        \"createdAt\": \"2026-08-23T21:29:25.757494\",\n        \"updatedAt\": \"2026-08-23T21:29:25.757494\"\n    },\n    \"timestamp\": \"2026-08-23T21:29:25.7763225\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Customers",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/customers/page?page=0&size=10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get All Customers - success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers/page?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 23 Aug 2026 16:02:21 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Customers retrieved successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"customerId\": 2,\n                \"cname\": \"Ramesh Yadav\",\n                \"cmobile\": \"8331275858\",\n                \"active\": true,\n                \"createdAt\": \"2026-08-23T21:27:26.399935\",\n                \"updatedAt\": \"2026-08-23T21:27:26.399935\"\n            },\n            {\n                \"customerId\": 3,\n                \"cname\": \"Dinesh Tripathi\",\n                \"cmobile\": \"9001274558\",\n                \"active\": true,\n                \"createdAt\": \"2026-08-23T21:28:24.508518\",\n                \"updatedAt\": \"2026-08-23T21:28:24.508518\"\n            },\n            {\n                \"customerId\": 4,\n                \"cname\": \"Amar Singh\",\n                \"cmobile\": \"9456874558\",\n                \"active\": true,\n                \"createdAt\": \"2026-08-23T21:29:25.757494\",\n                \"updatedAt\": \"2026-08-23T21:29:25.757494\"\n            }\n        ],\n        \"pageable\": {\n            \"pageNumber\": 0,\n            \"pageSize\": 10,\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"last\": true,\n        \"totalElements\": 3,\n        \"totalPages\": 1,\n        \"size\": 10,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 3,\n        \"first\": true,\n        \"empty\": false\n    },\n    \"timestamp\": \"2026-08-23T21:32:21.757163\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Customer by ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/customers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Customer by ID - success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 23 Aug 2026 16:04:15 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Customer retrieved successfully\",\n    \"data\": {\n        \"customerId\": 3,\n        \"cname\": \"Dinesh Tripathi\",\n        \"cmobile\": \"9001274558\",\n        \"active\": true,\n        \"createdAt\": \"2026-08-23T21:28:24.508518\",\n        \"updatedAt\": \"2026-08-23T21:28:24.508518\"\n    },\n    \"timestamp\": \"2026-08-23T21:34:15.0746203\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Customer Partially",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"active\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Customer Partially - success",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"active\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/customers/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 23 Aug 2026 16:07:15 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Customer updated successfully\",\n    \"data\": {\n        \"customerId\": 3,\n        \"cname\": \"Dinesh Tripathi\",\n        \"cmobile\": \"9001274558\",\n        \"active\": false,\n        \"createdAt\": \"2026-08-23T21:28:24.508518\",\n        \"updatedAt\": \"2026-08-23T21:37:15.264877\"\n    },\n    \"timestamp\": \"2026-08-23T21:37:15.3253859\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Customer by ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/customers/delete/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "delete",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Customer by ID - success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers/delete/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "delete",
+                "3"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 23 Aug 2026 16:11:20 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": null
         }
       ]
     }
